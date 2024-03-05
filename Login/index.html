@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Overall container */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Left column for login form */
+        .login-form {
+            flex: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Right column for hero image */
+        .hero-image {
+            flex: 1;
+            background-image: url('path/to/your-hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Style the login form inputs */
+        .login-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Style the login button */
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0074D9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <input type="text" class="login-input" placeholder="Username">
+            <input type="password" class="login-input" placeholder="Password">
+            <button class="login-button">Log In</button>
+        </div>
+        <div class="hero-image"></div>
+    </div>
+</body>
+</html>
