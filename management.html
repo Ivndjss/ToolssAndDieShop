@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+  <link rel='stylesheet' type='text/css' media='screen' href='management.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container" id="container">
+    <div class="side panel-container" id="sidepanel">
+      <form>
+        <h1>Tool and Die Management</h1>
+        <button type="button" onclick="window.location.href='#CreateJob'">Create Job</button>
+        <button type="button" onclick="window.location.href='#ViewJob'">View Job</button>
+        <button type="button" onclick="window.location.href='#UpdateJob'">Update Job</button>
+        <button type="button" onclick="window.location.href='#DeleteJob'">Delete Job</button>
+      </form>
+    </div>
+
+  <div class="main panel-container">
+    <div id="CreateJob">
+      <form>
+        <label for="jobNumber">Job Number: </label>
+        <span id="jobNumber"></span>
+        <label for="name">Name:</label>
+        <input type="text" placeholder="Name" id="name">
+        <label for="description">Description:</label>
+        <input type="text" placeholder="Description" id="description">
+        <label for="startDate">Start Date:</label>
+        <input type="date" class="form-control" id="startDate">
+        <label for="endDate">End Date:</label>
+        <input type="date" class="form-control" id="endDate">
+        <label for="startTime">Start Time:</label>
+        <input type="time" id="startTime" name="startTime">
+        <label for="endTime">End Time:</label>
+        <input type="time" id="endTime" name="endTime">
+        <div class="scrollable-table-wrapper">
+          <table id="materialsTable">
+            <thead>
+              <tr>
+                <th><label for="selectAllCheckbox">Select All</label><input type="checkbox" id="selectAllCheckbox"></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>ID</th>
+              </tr>
+            </thead>
+            <tbody id="materialsTableBody"></tbody>
+          </table>
+        </div>
+        <button type="button" id="jobSaveButton">Save Job</button>
+        <button type="button" id="jobViewButton">View Job</button>
+        <div id="jobList"></div>
+      </form>
+    </div>
+
+    <div id="ViewJob">
+      <form>
+        <label for="ongoing-jobs">Ongoing Jobs:</label>
+        <select id="ongoing-jobs">
+          <option value="">-- Select Job --</option>
+        </select>
+        <label for="viewJobNumber">Job Number:</label>
+        <span id="viewJobNumber">--</span><br>
+
+        <label for="viewJobName">Name:</label>
+        <span id="viewJobName">--</span><br>
+
+        <label for="viewJobDesc">Description:</label>
+        <span id="viewJobDesc">--</span><br>
+
+        <label for="viewJobStartDate">Start Date:</label>
+        <span id="viewJobStartDate">--</span><br>
+
+        <label for="viewJobEndDate">End Date:</label>
+        <span id="viewJobEndDate">--</span><br>
+
+        <label for="viewJobStartTime">Start Time:</label>
+        <span id="viewJobStartTime">--</span><br>
+
+        <label for="viewJobEndTime">End Time:</label>
+        <span id="viewJobEndTime">--</span><br>
+
+        <label for="viewJobProgress">Job Progress:</label>
+        <span id="viewJobProgress">--</span><br>
+        <div class="scrollable-table-wrapper">
+          <table id="materialsForJobTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>ID</th>
+              </tr>
+            </thead>
+            <tbody id="materialsForJobTableBody"></tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+
+    <div id="UpdateJob">
+      <form>
+        <label for="editOngoing-Jobs">Ongoing Jobs:</label>
+        <select id="editOngoing-Jobs">
+          <option value="">-- Select Job --</option>
+        </select>
+        <form id="editForm" style="display: none;">
+          <h2>Edit Job Details</h2>
+          <label for="editName">Job Name:</label>
+          <input type="text" id="editName" required><br>
+          <label for="editDescription">Description:</label>
+          <textarea id="editDescription" required></textarea><br>
+          <label for="editStartDate">Start Date:</label>
+          <input type="date" id="editStartDate" required><br>
+          <label for="editEndDate">End Date:</label>
+          <input type="date" id="editEndDate" required><br>
+          <label for="editStartTime">Start Time:</label>
+          <input type="time" id="editStartTime" required><br>
+          <label for="editEndTime">End Time:</label>
+          <input type="time" id="editEndTime" required><br>
+          <h2>Materials</h2>
+          <div class="scrollable-table-wrapper">
+            <table id="editMaterialsTable">
+              <thead>
+                <tr>
+                  <th>
+                    <label for="selectAll">Select All</label>
+                    <input type="checkbox" id="selectAll">
+                  </th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>ID</th>
+                </tr>
+              </thead>
+              <tbody id="editMaterialsTableBody"></tbody>
+            </table>
+          </div>
+          <button type="button" id="updateJobBtn">Update Job</button>
+        </form>
+      </form>
+    </div>
+
+    <div id="DeleteJob">
+      <form>
+        <label for="deleteOngoing-Jobs">Ongoing Jobs:</label>
+        <select id="deleteOngoing-Jobs">
+          <option value="">-- Select Job --</option>
+        </select>
+        <label for="deleteJobNumber">Job Number:</label>
+        <span id="deleteJobNumber">--</span><br>
+
+        <label for="deleteJobName">Name:</label>
+        <span id="deleteJobName">--</span><br>
+
+        <label for="deleteJobDesc">Description:</label>
+        <span id="deleteJobDesc">--</span><br>
+
+        <label for="deleteJobStartDate">Start Date:</label>
+        <span id="deleteJobStartDate">--</span><br>
+
+        <label for="deleteJobEndDate">End Date:</label>
+        <span id="deleteJobEndDate">--</span><br>
+
+        <label for="deleteJobStartTime">Start Time:</label>
+        <span id="deleteJobStartTime">--</span><br>
+
+        <label for="deleteJobEndTime">End Time:</label>
+        <span id="deleteJobEndTime">--</span><br>
+
+        <label for="deleteJobProgress">Job Progress:</label>
+        <span id="deleteJobProgress">--</span><br>
+        <div class="scrollable-table-wrapper">
+          <table id="deleteMaterialsForJobTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>ID</th>
+              </tr>
+            </thead>
+            <tbody id="deleteMaterialsForJobTableBody"></tbody>
+          </table>
+        </div>
+        <button id="jobDeleteButton" type="button">Delete Job</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <script src='management.js'></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

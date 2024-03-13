@@ -1,0 +1,62 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+  /* Container Styles */
+  .container {
+    display: flex; /* Make the container a flexbox */
+    width: 100vw; /* Set container width to 100% viewport width */
+    height: 100vh; /* Set container height to 100% viewport height */
+  }
+  
+  /* Side Panel Styles */
+  .side {
+    width: 200px; /* Set side panel width */
+    background-color: #f0f0f0; /* Set background color */
+    padding: 20px; /* Add padding */
+    border-right: 1px solid #ddd; /* Add border to separate panels */
+  }
+  
+  /* Main Panel Styles */
+  .main {
+    flex: 1; /* Make main panel take up remaining space */
+    padding: 20px; /* Add padding */
+  }
+  
+  /* Form Styles */
+  form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+  }
+  
+  form button {
+    margin-bottom: 10px; /* Add spacing between buttons */
+  }
+  
+  /* Other styles can be added here for specific elements */
+
+table {
+    border-collapse: collapse; /* Remove borders between cells */
+    width: 100%; /* Adjust width as needed */
+  }
+  
+  th, td {
+    padding: 5px; /* Add padding to cells */
+    text-align: left; /* Align text to the left */
+    border: 1px solid #ddd; /* Add borders to cells */
+  }
+  
+  th {
+    background-color: #f2f2f2; /* Light background for headers */
+  }
+  
+  .itemCheckbox {
+    background-color: lightblue; /* Example background color */
+    border: 1px solid blue; /* Example border */
+    padding: 5px; /* Example padding */
+}
+
+  
